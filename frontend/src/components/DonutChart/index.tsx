@@ -6,9 +6,8 @@ import { SaleSum } from 'type/sale';
 import { BASE_URL } from 'utils/request';
 
 type ChartData = {
-    labels: String[];
+    labels: string[];
     series: number[];
-
 }
 
 function DonutChart() {
@@ -28,14 +27,11 @@ function DonutChart() {
     }, []);
 
 
-
-
     const options = {
         legend: {
             show: true
         }
     }
-
 
     return (
         <Chart
@@ -43,9 +39,6 @@ function DonutChart() {
             series={chartData.series}
             type="donut"
             height="240"
-
-
-
         />
 
     );
