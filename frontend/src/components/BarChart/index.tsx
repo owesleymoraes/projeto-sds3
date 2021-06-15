@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { type } from 'os';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Chart from 'react-apexcharts'
@@ -13,7 +12,7 @@ type SeriesData = {
 }
 type ChartData = {
     labels: {
-        categories: String[];
+        categories: string[];
     };
 
     series: SeriesData[];
@@ -42,16 +41,17 @@ function BarChart() {
                 const myLabels = data.map(x => x.sellerName);
                 const mySeries = data.map(x => round(100 * x.deals / x.visited, 1));
 
-                setChartData({ labels: {
-                    categories: myLabels 
-                },
-                series: [
-                    {
-                        name: "% Success",
-                        data: mySeries
-                    }
-                ]
-            });
+                setChartData({
+                    labels: {
+                        categories: myLabels
+                    },
+                    series: [
+                        {
+                            name: "% Success",
+                            data: mySeries
+                        }
+                    ]
+                });
 
             });
 
@@ -66,7 +66,7 @@ function BarChart() {
         },
     };
 
-   
+
     return (
         <Chart
             options={{ ...options, xaxis: chartData.labels }}
